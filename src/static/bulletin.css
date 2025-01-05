@@ -1,0 +1,18 @@
+.post:first-of-type {
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-right-style: none;
+	border-left-style: none;
+	border-color: black;
+	padding: 1em;
+}
+
+.post {
+	border-top-style: none;
+	border-bottom-style: solid;
+	border-right-style: none;
+	border-left-style: none;
+	border-color: grey;
+	border-width: 1px;
+	padding: 1em;
+}
