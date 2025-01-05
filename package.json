@@ -1,0 +1,16 @@
+{
+  "name": "waspada-aja",
+  "module": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "NODE_ENV=production bun run src/index.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "dependencies": {
+    "eta": "^3.5.0",
+    "hono": "^4.6.14",
+    "mariadb": "^3.4.0"
+  }
+}
