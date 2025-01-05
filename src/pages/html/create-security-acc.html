@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Daftar Akun</title>
+		<link rel="stylesheet" type="text/css" href="/static/style.css">
+		<link rel="favicon" type="text/css" href="/favicon.ico">
+	</head>
+	<body>
+		<nav class="navbar is-dark">
+			<div class="container">
+				<div class="navbar-menu">
+					<div class="navbar-start">
+						<div class="navbar-item">
+							<a href="/"><img src="/static/logo.svg"></a>
+						</div>
+						<div class="navbar-item">
+							<a class="button is-warning" href="/">Buletin</a>
+							<a class="button is-warning" href="/dashboard">Dasbor</a>
+						</div>
+					</div>
+					<div class="navbar-end">
+						<div class="navbar-item">
+							<a class="button is-warning" href="/settings">Pengaturan</a>
+							<a class="button is-warning" href="/logout">Keluar Akun</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<section class="hero is-fullheight-with-navbar">
+			<div class="hero-body">
+				<div class="container">
+					<div class="columns is-centered">
+						<div class="column is-two-fifths-widescreen if-half-desktop is-half-tablet">
+							<h1 class="is-size-1 has-text-centered">Daftar Akun Petugas</h1>
+							<form id="form" action="/api/security-account/register" method="post">
+								<div class="field">
+									<label class="label">Nama Lengkap</label>
+									<input name="full-name" class="input" type="text" minlength="3" maxlength="48" pattern="([a-zA-Z0-9_\s]+)" placeholder="Contoh: Adit Pratama" required>
+								</div>
+								<div class="field">
+									<label class="label">Nomor WhatsApp</label>
+									<input name="phone-number" class="input" type="tel" minlength="10" maxlength="13" pattern="^08\d+$" placeholder="Contoh: 081299995555" required>
+								</div>
+								<div class="field">
+									<label class="label">Kata Sandi</label>
+									<input class="input" type="password" minlength="5" maxlength="32" placeholder="Minimal 5 karakter" name="password" required>
+								</div>
+								<div class="field">
+									<label class="label">Alamat Rumah</label>
+									<textarea name="address" class="textarea" minlength="8" maxlength="128" placeholder="Contoh: Perumahan Indah Garden Blok C Nomor 20" required></textarea>
+								</div>
+								<div class="field">
+									<input class="button is-dark is-fullwidth" type="submit" value="Daftar Akun">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
