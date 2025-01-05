@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Error</title>
+		<link rel="stylesheet" type="text/css" href="/static/style.css">
+		<link rel="favicon" type="text/css" href="/favicon.ico">
+	</head>
+	<body>
+		<section class="hero is-dark is-fullheight">
+			<div class="hero-body">
+				<div class="container">
+					<h1 class="is-size-1">error :(</h1>
+					<p class="is-size-3">
+						<%= it.errorMsg %>
+					</p>
+					<a class="button is-light mt-4" href="<%= it.back %>">Kembali</a>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>WaspadaAja</title>
+		<link rel="stylesheet" type="text/css" href="/static/style.css">
+		<link rel="favicon" type="text/css" href="/favicon.ico">
+	</head>
+	<body>
+		<nav class="navbar is-dark">
+			<div class="container">
+				<div class="navbar-menu">
+					<div class="navbar-start">
+						<div class="navbar-item">
+							<a href="/"><img src="/static/logo.svg"></a>
+						</div>
+						<div class="navbar-item">
+							<a class="button is-warning" href="/bulletin">Buletin</a>
+						</div>
+					</div>
+					<div class="navbar-end">
+						<div class="navbar-item">
+							<% if (it.loggedIn) { %>
+								<a class="button is-warning" href="/dashboard">Dasbor</a>
+							<%} else { %>
+								<a class="button is-warning" href="/login">Masuk Akun</a>
+								<a class="button is-warning" href="/register">Daftar Akun</a>
+							<% } %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<section class="hero is-medium">
+			<div class="hero-body">
+				<div class="container">
+					<h1 class="is-size-1">WaspadaAja</h1>
+					<p class="is-size-3">
+						Laporkan kejadian yang membahayakan warga perumahan.
+						<% if (!it.loggedIn) { %>
+							<br><br>Silakan Daftar Akun atau Masuk Akun untuk membuat laporan.
+						<% } %>
+					</p>
+				</div>
+			</div>
+		</section>
+		<section class="hero is-medium is-link">
+			<div class="hero-body">
+				<div class="container">
+					<h2 class="is-size-2">Kenapa WaspadaAja?</h2>
+					<div class="columns is-multiline mt-2">
+						<div class="column is-half">
+							<div class="box">
+								<h2 class="is-size-2">Proses Mudah</h2>
+								<p class="is-size-5">Cukup mendaftar dengan nomor WhatsApp, Anda sudah bisa membuat laporan pengaduan.</p>
+							</div>
+						</div>
+						<div class="column is-half">
+							<div class="box">
+								<h2 class="is-size-2">Tanpa Iklan</h2>
+								<p class="is-size-5">Website tidak memasang iklan yang dapat mengganggu pengguna untuk memastikan pengguna nyaman saat mengunjungi website.</p>
+							</div>
+						</div>
+						<div class="column is-full">
+							<div class="box">
+								<h2 class="is-size-2">Privasi</h2>
+								<p class="is-size-5">Pengguna mempunyai hak untuk menghapus data akun dari website sepenuhnya tanpa harus menunggu konfirmasi Admin.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer class="footer has-background-dark has-text-light">
+			<div class="container">
+				<h2 class="is-size-2">&copy PBL-TRPL108</h2>
+				<p class="is-size-4">Made in Indonesia</p>
+			</div>
+		</footer>
+	</body>
+</html>
