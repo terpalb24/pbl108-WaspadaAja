@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Laporan</title>
+		<link rel="stylesheet" type="text/css" href="/static/style.css">
+		<link rel="favicon" type="text/css" href="/favicon.ico">
+	</head>
+	<body>
+		<nav class="navbar is-dark">
+			<div class="container">
+				<div class="navbar-menu">
+					<div class="navbar-start">
+						<div class="navbar-item">
+							<a href="/"><img src="/static/logo.svg"></a>
+						</div>
+						<div class="navbar-item">
+							<a class="button is-warning" href="/bulletin">Buletin</a>
+						</div>
+						<div class="navbar-item">
+							<a class="button is-warning" href="/dashboard">Dasbor</a>
+						</div>
+					</div>
+					<div class="navbar-end">
+						<div class="navbar-item">
+							<a class="button is-warning" href="/settings">Pengaturan</a>
+							<a class="button is-warning" href="/logout">Keluar Akun</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<section class="hero is-fullheight-with-navbar">
+			<div class="hero-body">
+				<div class="container is-fluid">
+					<div class="columns is-multiline">
+						<div class="column">
+
+							<label class="label">Status Laporan</label>
+							<input class="input" type="text" value="<%= it.report.status %>" readonly>
+
+							<h2 class="is-size-2"><%= it.report.title %></h2>
+							<p class="is-size-6"><%= it.report.description %></p>
+							<hr>
+							<p class="is-size-6">Pelapor: <%= it.report.reporter %><br>Alamat: <%= it.report.address %></p>
+
+							<% if (it.images.length > 0) { %>
+							<p class="buttons mt-4">
+							<% for(var image of it.images) { %>
+								<button class="button is-dark display-modal" data-imgsrc="<%= image.file_name %>">Gambar <%= image.file_name.slice(0, 1) %></button>
+							<% } %>
+							</p>
+							<div id="modal" class="modal">
+								<div class="modal-background"></div>
+								<div class="modal-content">
+									<img id="modal-img" src="">
+								</div>
+								<button id="modal-close" class="modal-close is-large" aria-label="close"></button>
+							</div>
+							<% } %>
+						</div>
+						<div class="column is-two-thirds">
+							<% if (it.messages.length) { %>
+								<% for (let message of it.messages) { %>
+								<div>
+									<h2 class="is-size-4 has-text-weight-bold"><%= message.sender %> (<%= message.role %>)</h2>
+									<p class="is-size-5"><%= message.message %></p>
+									<p class="is-size-6 has-text-grey"><%= message.sent_at %></p>
+								</div>
+								<hr>
+								<% } %>
+							<% } %>
+							<div>
+								<form action="/api/report/send-message" method="POST">
+									<input class="is-hidden" type="text" name="report-id" value="<%= it.report.report_id %>">
+									<textarea class="textarea" minlength="8" maxlength="2048" placeholder="Maksimal 2048 karakter" name="message" required></textarea>
+									<input class="button is-warning mt-2" type="submit" value="Kirim Pesan">
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<script type="text/javascript" src="/static/js/report.js"></script>
+	</body>
+</html>
