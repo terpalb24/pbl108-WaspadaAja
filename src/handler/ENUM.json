@@ -1,0 +1,7 @@
+{
+	"userRoles": ["RESIDENT", "SECURITY", "ADMIN"],
+	"residentStatuses": ["PERMANENT", "TEMPORARY", "NON_RESIDENT"],
+	"reportStatuses": ["OPEN", "PROCESS", "RESOLVED"],
+	"reportCategories": ["BURGLARY", "DAMAGED_FACILITY", "THEFT", "FIRE", "STREET_FIGHT", "SUSPICIOUS_ACTIVITY", "OTHER"],
+	"postStatus": ["PENDING", "ACCEPTED"]
+}
