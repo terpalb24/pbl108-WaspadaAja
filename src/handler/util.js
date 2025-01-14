@@ -33,14 +33,14 @@ export const loggedIn = async(c) => {
 	const sessionId = await cookie.get(c);
 	if (!sessionId) return false;
 
-	// apakah sesi itu valid / terdaftar pada database
+	// if session is valid or registered on database
 	const session = await data.session.get(sessionId);
 	if (!session) {
 		await cookie.destroy(c);
 		return false;
 	}
 
-	// cek apakah id sesi dikaitkan dengan user yang telah terdaftar
+	// if the session id tied to a specific registered account
 	const userExists = await data.account.get(session.account_id);
 	if (!userExists) {
 		await cookie.destroy(c);
