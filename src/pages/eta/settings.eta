@@ -55,9 +55,9 @@
 						<div class="field">
 							<input class="button is-warning is-fullwidth" type="submit" value="Simpan Perubahan">
 						</div>
-						<hr>
-						<button class="button is-danger">Hapus akun</button>
 					</form>
+					<hr>
+					<a class="button is-danger" href="/delete-acount">Hapus Akun</a>
 				</div>
 			</div>
 		</section>
