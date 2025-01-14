@@ -194,8 +194,12 @@ export const insertImageToDatabase = async(conn, tableName, locationId, imagesNa
 
 export const deleteImageFromStorage = async(folderName, fileNames) => {
 
-	for (let fileName of fileNames) {
-		await unlink(`./src/static/uploads/${folderName}/${fileName}`);
+	try {
+		for (let fileName of fileNames) {
+			await unlink(`./src/static/uploads/${folderName}/${fileName}`);
+		}
+	} catch(err) {
+		console.error(err);
 	}
 
 };
