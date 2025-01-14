@@ -44,7 +44,7 @@ export const account = {
 		await conn.query(query, [accountId]);
 	},
 
-	// cari data akun berdasarkan id atau nomor whatsapp
+	// find account data based on account id or phone number
 	get: async(input) => {
 		const cmd = "SELECT * FROM accounts WHERE account_id = ? OR phone_number = ?;";
 		const result = await conn.query(cmd, [input, input]);
@@ -94,8 +94,12 @@ export const session = {
 	delete: async(sessionId) => {
 		const cmd = "DELETE FROM sessions WHERE session_id = ?";
 		await conn.query(cmd, [sessionId]);
-	}
+	},
 
+	deleteAll: async(accountId) => {
+		const cmd = "DELETE FROM sessions WHERE account_id = ?";
+		await conn.query(cmd, [accountId]);
+	}
 
 }
 
@@ -146,6 +150,12 @@ export const report = {
 			cmd += " LIMIT 9;";
 
 			const res = await conn.query(cmd, [accountId]);
+			return res;
+		},
+
+		fetchAll: async(reporterId) => {
+			const query = "SELECT * FROM reports WHERE reporter_id = ?;";
+			const res = await conn.query(query, [reporterId]);
 			return res;
 		},
 

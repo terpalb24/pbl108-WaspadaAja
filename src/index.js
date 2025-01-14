@@ -34,6 +34,7 @@ import manageSecurity from "./route/manageSecurity";
 import createSecurityAccount from "./route/createSecurityAccount";
 import viewSecurityAccount from "./route/viewSecurityAccount";
 import deleteSecurityAccount from "./route/deleteSecurityAccount";
+import deleteAccount from "./route/deleteAccount";
 
 import loginAPI from "./route/api/account/login";
 import registerAPI from "./route/api/account/register";
@@ -121,6 +122,9 @@ const app = new Hono()
 })
 .get("/delete-security/:id", async(c) => {
 	return await deleteSecurityAccount(c, util, data, cookie);
+})
+.get("/delete-acount", async(c) => {
+	return await deleteAccount(c, util, data, cookie);
 })
 
 .post("/api/account/login", async(c) => {
