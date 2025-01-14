@@ -153,6 +153,12 @@ export const report = {
 			return res;
 		},
 
+		fetchAll: async(reporterId) => {
+			const query = "SELECT * FROM reports WHERE reporter_id = ?;";
+			const res = await conn.query(query, [reporterId]);
+			return res;
+		},
+
 		oneById: async(reportId) => {
 			const cmd = "SELECT * FROM reports WHERE report_id = ?;";
 			const res = await conn.query(cmd, [reportId]);
